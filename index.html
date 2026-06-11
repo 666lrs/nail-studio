@@ -1,187 +1,368 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>小妮美甲 · 东莞东坑 | 预约下单</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
 <style>*{margin:0;padding:0;box-sizing:border-box}:root{--gold:#c8a27b;--gold-light:#e8d5c4;--gold-dark:#a67c5b;--cream:#faf5f0;--white:#fff;--text:#2c2420;--text-light:#8a7a72;--border:#e8ddd7;--shadow:0 4px 20px rgba(44,34,30,.06);--shadow-lg:0 12px 40px rgba(44,34,30,.1);--radius:16px;--radius-sm:10px;--font:"Inter",sans-serif;--font-serif:"Playfair Display",Georgia,serif;--nav-h:72px}
+
 html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}body{font-family:var(--font);background:var(--cream);color:var(--text);line-height:1.7;font-size:15px}
+
 img{display:block;max-width:100%}a{color:var(--gold);text-decoration:none}
+
 .container{max-width:1120px;margin:0 auto;padding:0 28px}
+
 .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(250,245,240,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;display:flex;align-items:center}
+
 .nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1120px;margin:0 auto;padding:0 28px}
+
 .nav-logo{font-family:var(--font-serif);font-size:1.35rem;font-weight:600;color:var(--gold-dark);letter-spacing:-.02em}
+
 .nav-logo span{display:block;font-size:.6rem;font-weight:400;color:var(--text-light);letter-spacing:.15em;text-transform:uppercase}
+
 .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+
 .nav-links a{font-size:.85rem;font-weight:500;color:var(--text-light);position:relative;padding:4px 0}
+
 .nav-links a::after{content:"";position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--gold);transition:width .3s}
+
 .nav-links a:hover,.nav-links a.active{color:var(--gold-dark)}
+
 .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+
 .nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff!important;padding:10px 24px;border-radius:50px;font-size:.8125rem!important;font-weight:600;box-shadow:0 4px 12px rgba(200,162,123,.3);transition:all .25s!important}.nav-cta::after{display:none!important}
+
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(200,162,123,.4)!important}
+
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+
 .nav-toggle span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(135deg,#1a1412,#2c201c,#3d2c26);overflow:hidden}
+
 .hero::before{content:"";position:absolute;inset:0;background:url(https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1400&q=80) center/cover;opacity:.25;z-index:0}
+
 .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(200,162,123,.12),transparent 70%);z-index:1}
+
 .hero .container{position:relative;z-index:2;width:100%}
+
 .hero-content{max-width:580px}.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:500;letter-spacing:.12em;color:var(--gold-light);border:1px solid rgba(200,162,123,.3);padding:6px 16px;border-radius:50px;margin-bottom:24px;text-transform:uppercase}
+
 .hero-badge::before{content:"";width:5px;height:5px;background:var(--gold);border-radius:50%}
+
 .hero h1{font-family:var(--font-serif);font-size:clamp(2.2rem,5.5vw,4rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:20px}
+
 .hero h1 em{font-style:italic;color:var(--gold);font-weight:600}
+
 .hero p{font-size:1rem;color:rgba(255,255,255,.75);max-width:460px;margin-bottom:36px;line-height:1.8}
+
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 36px;border-radius:50px;font-size:.9375rem;font-weight:600;font-family:var(--font);border:none;cursor:pointer;transition:all .3s}
+
 .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;box-shadow:0 6px 20px rgba(200,162,123,.35)}
+
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(200,162,123,.45)}
+
 .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+
 .btn-outline:hover{border-color:var(--gold);background:rgba(200,162,123,.1);transform:translateY(-3px)}
+
 .hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2}
+
 .hero-scroll a{display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase}
+
 .hero-scroll a:hover{color:var(--gold)}.hero-scroll .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2.4s ease-in-out infinite}
+
 @keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+
 .section{padding:100px 0}.section-alt{background:var(--white)}
+
 .section-header{text-align:center;margin-bottom:56px}
+
 .section-tag{display:inline-block;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin-bottom:10px}
+
 .section-tag::after{content:"";display:block;width:24px;height:1.5px;background:var(--gold);margin:8px auto 0}
+
 .section-header h2{font-family:var(--font-serif);font-size:clamp(1.6rem,3vw,2.8rem);font-weight:600;color:var(--text);margin-bottom:14px}
+
 .section-header p{color:var(--text-light);max-width:540px;margin:0 auto;font-size:.92rem}
+
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+
 .about-image{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;background:var(--border);box-shadow:var(--shadow-lg)}
+
 .about-image img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+
 .about-image:hover img{transform:scale(1.04)}
+
 .about-text h3{font-family:var(--font-serif);font-size:1.8rem;font-weight:600;margin-bottom:16px}
+
 .about-text h3 span{color:var(--gold)}.about-text p{color:var(--text-light);margin-bottom:18px;font-size:.92rem;line-height:1.8}
+
 .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+
 .about-stat{text-align:center;padding:24px 16px;background:var(--cream);border-radius:var(--radius-sm);border:1px solid var(--border);transition:transform .3s,box-shadow .3s}
+
 .about-stat:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+
 .about-stat strong{display:block;font-family:var(--font-serif);font-size:2rem;color:var(--gold);font-weight:700}
+
 .about-stat span{font-size:.82rem;color:var(--text-light)}
+
 .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px}
+
 .service-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;transition:all .35s;position:relative;overflow:hidden}
+
 .service-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));opacity:0;transition:opacity .35s}
+
 .service-card:hover{border-color:var(--gold-light);box-shadow:var(--shadow-lg);transform:translateY(-6px)}
+
 .service-card:hover::before{opacity:1}
+
 .service-card .icon{font-size:2.2rem;margin-bottom:16px}
+
 .service-card .top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px}
+
 .service-card h4{font-size:1.1rem;font-weight:600}
+
 .service-card .price{font-family:var(--font-serif);font-size:1.35rem;color:var(--gold);font-weight:600;white-space:nowrap}
+
 .service-card .meta{display:flex;gap:12px;margin:10px 0 12px}
+
 .service-card .meta span{font-size:.78rem;color:var(--text-light)}
+
 .service-card .desc{font-size:.88rem;color:var(--text-light);margin-bottom:12px;line-height:1.6}
+
 .service-card .detail{font-size:.8rem;color:var(--gold-dark);background:rgba(200,162,123,.08);padding:8px 12px;border-radius:6px;margin-bottom:16px;line-height:1.5}
+
 .service-tag{display:inline-block;font-size:.65rem;font-weight:600;color:var(--gold-dark);background:rgba(200,162,123,.1);padding:3px 10px;border-radius:50px;text-transform:uppercase;letter-spacing:.06em}
+
 .service-card .btn-order{width:100%;padding:12px;font-size:.85rem;font-weight:600;border-radius:50px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;border:none;cursor:pointer;transition:all .25s}
+
 .service-card .btn-order:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(200,162,123,.3)}
+
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
 .gallery-item{border-radius:var(--radius-sm);overflow:hidden;aspect-ratio:1;background:var(--border);cursor:pointer;position:relative}
+
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+
 .gallery-item:hover img{transform:scale(1.1)}
+
 .gallery-item .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(44,34,30,.7),transparent 50%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:20px}
+
 .gallery-item:hover .overlay{opacity:1}
+
 .gallery-item .overlay span{color:#fff;font-size:.85rem;font-weight:500}
+
 .lightbox{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:40px}
+
 .lightbox.active{display:flex}.lightbox img{max-width:90vw;max-height:85vh;border-radius:var(--radius);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+
 .lightbox-close{position:absolute;top:28px;right:36px;background:rgba(255,255,255,.1);border:none;color:#fff;width:44px;height:44px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
 .lightbox-close:hover{background:rgba(255,255,255,.2)}
+
 .booking-wrapper{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+
 .booking-info h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}
+
 .booking-info>p{color:var(--text-light);font-size:.9rem;margin-bottom:28px}
+
 .booking-info .info-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+
 .booking-info .info-item .icon{width:44px;height:44px;background:rgba(200,162,123,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.15rem}
+
 .booking-info .info-item div strong{display:block;font-size:.9rem;font-weight:600;margin-bottom:2px}
+
 .booking-info .info-item div span{font-size:.84rem;color:var(--text-light);line-height:1.5}
+
 .booking-form{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;box-shadow:var(--shadow)}
+
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.form-group{margin-bottom:20px}
+
 .form-group label{display:block;font-size:.82rem;font-weight:600;margin-bottom:7px;color:var(--text)}
+
 .form-group label .required{color:#d45;margin-left:2px}
+
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;font-size:.9rem;font-family:var(--font);border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--cream);color:var(--text);transition:all .25s;outline:none}
+
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold-light);box-shadow:0 0 0 4px rgba(200,162,123,.12);background:var(--white)}
+
 .form-group textarea{resize:vertical;min-height:80px}
+
 .btn-submit{width:100%;padding:16px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;border:none;border-radius:50px;font-size:.95rem;font-weight:600;font-family:var(--font);cursor:pointer;transition:all .25s}
+
 .btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,162,123,.4)}
+
 .form-success{display:none;text-align:center;padding:48px 20px}.form-success.active{display:block}
+
 .form-success .check{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,rgba(200,162,123,.15),rgba(200,162,123,.08));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.6rem}
+
 .form-success h4{font-family:var(--font-serif);font-size:1.4rem;margin-bottom:10px}.form-success p{color:var(--text-light);font-size:.88rem}
+
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
 .contact-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:36px 28px;text-align:center;transition:all .3s}
+
 .contact-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+
 .contact-card .icon{width:56px;height:56px;margin:0 auto 18px;background:linear-gradient(135deg,rgba(200,162,123,.12),rgba(200,162,123,.06));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+
 .contact-card h4{font-size:.95rem;font-weight:600;margin-bottom:8px}.contact-card p{font-size:.84rem;color:var(--text-light);line-height:1.6}
+
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
 .faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-sm);padding:24px 28px;transition:all .25s}
+
 .faq-item:hover{border-color:var(--gold-light);box-shadow:var(--shadow)}
+
 .faq-item h4{font-size:.92rem;font-weight:600;margin-bottom:6px;color:var(--gold-dark)}
+
 .faq-item p{font-size:.86rem;color:var(--text-light);line-height:1.6}
+
 .footer{border-top:1px solid var(--border);padding:48px 0;text-align:center;background:var(--white)}
+
 .footer .logo{font-family:var(--font-serif);font-size:1.2rem;font-weight:600;color:var(--gold-dark);margin-bottom:4px}
+
 .footer p{font-size:.78rem;color:var(--text-light)}
+
 .footer-socials{display:flex;justify-content:center;gap:12px;margin-bottom:20px}
+
 .footer-socials a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--text-light);transition:all .25s}
+
 .footer-socials a:hover{background:var(--gold);border-color:var(--gold);color:#fff;transform:translateY(-2px)}
+
 .back-top{position:fixed;bottom:36px;right:36px;z-index:900;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;border:none;cursor:pointer;font-size:1.15rem;box-shadow:0 4px 16px rgba(200,162,123,.4);opacity:0;visibility:hidden;transform:translateY(16px);transition:all .3s;display:flex;align-items:center;justify-content:center}
+
 .back-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+
 .back-top:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(200,162,123,.5)}
+
 .admin-section{display:none;padding:60px 0 100px;background:var(--white);border-top:1px solid var(--border)}
+
 .admin-section.active{display:block}
+
 .admin-login{max-width:380px;margin:60px auto;text-align:center;padding:48px 36px;background:var(--cream);border-radius:var(--radius);border:1px solid var(--border)}
+
 .admin-login h3{font-family:var(--font-serif);font-size:1.3rem;margin-bottom:24px}
+
 .admin-login input{width:100%;padding:12px 16px;font-size:.9rem;font-family:var(--font);border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--white);outline:none;text-align:center;margin-bottom:14px}
+
 .admin-login input:focus{border-color:var(--gold-light);box-shadow:0 0 0 4px rgba(200,162,123,.12)}
+
 .admin-login .error{color:#d45;font-size:.8rem;margin-top:8px;min-height:1.2em;display:none}
+
 .admin-dashboard{max-width:1000px;margin:0 auto}
+
 .admin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+
 .admin-header h2{font-family:var(--font-serif);font-size:1.4rem}
+
 .admin-header .badge{font-size:.8rem;color:var(--text-light);background:var(--cream);padding:6px 18px;border-radius:50px}
+
 .admin-logout-btn{font-size:.8rem;color:var(--text-light);cursor:pointer;padding:6px 16px;border:1px solid var(--border);border-radius:50px;background:none;transition:all .2s}
+
 .admin-logout-btn:hover{color:var(--gold-dark);border-color:var(--gold)}
+
 .admin-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--cream)}
+
 .admin-table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:680px}
+
 .admin-table th{text-align:left;padding:14px 16px;font-weight:600;font-size:.78rem;color:var(--text-light);border-bottom:1px solid var(--border);background:var(--white);white-space:nowrap}
+
 .admin-table td{padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+
 .admin-table tr:last-child td{border-bottom:none}.admin-table tr:hover td{background:rgba(200,162,123,.04)}
+
 .admin-table .status{display:inline-block;padding:3px 10px;border-radius:50px;font-size:.72rem;font-weight:600}
+
 .admin-table .status.pending{background:#fff3e0;color:#e65100}
+
 .admin-table .status.confirmed{background:#e8f5e9;color:#2e7d32}
+
 .admin-table .status.completed{background:#e3f2fd;color:#1565c0}
+
 .admin-table .status.cancelled{background:#fce4ec;color:#c62828}
+
 .admin-table select.action{font-size:.75rem;padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--white);cursor:pointer}
+
 .admin-table .btn-del{background:none;border:none;color:#d45;cursor:pointer;font-size:.78rem;padding:4px 8px;border-radius:4px}
+
 .admin-table .btn-del:hover{background:#fce4ec}
+
 .admin-empty{padding:60px 20px;text-align:center;color:var(--text-light)}.admin-empty .icon{font-size:2.6rem;margin-bottom:12px}
-.admin-footer-link{display:inline-block;font-size:.72rem;color:var(--text-light);cursor:pointer;margin-top:12px;opacity:.4;transition:opacity .25s;margin-left:14px;letter-spacing:.04em}
-.admin-footer-link:hover{opacity:1;color:var(--gold)}
+
+.admin-footer-link{display:inline-block;font-size:.85rem;color:var(--gold-dark);cursor:pointer;margin-top:8px;padding:6px 18px;border-radius:50px;border:1px solid var(--gold);background:var(--white);font-weight:600;margin-left:14px;letter-spacing:.02em;transition:all .2s}.admin-footer-link:hover{background:var(--gold);color:#fff}
+
+
+
 @media(max-width:900px){.about-grid,.booking-wrapper{grid-template-columns:1fr;gap:40px}.faq-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+
 @media(max-width:768px){.nav-links{display:none;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--cream);flex-direction:column;padding:20px 28px 28px;gap:18px;border-bottom:1px solid var(--border);box-shadow:var(--shadow-lg)}.nav-links.open{display:flex}.nav-toggle{display:flex}.about-stats{grid-template-columns:repeat(3,1fr);gap:10px}.form-row{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto}.section{padding:72px 0}.booking-form{padding:28px}.hero-content{text-align:center}.hero-content p{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.services-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+
 @media(max-width:480px){.gallery-grid{grid-template-columns:1fr}.about-stats{grid-template-columns:1fr;max-width:200px;margin:24px auto 0}.container{padding:0 16px}.hero h1{font-size:clamp(1.8rem,8vw,2.4rem)}}
+
 </style></head><body>
+
 <nav class="nav" id="nav"><div class="nav-inner"><div class="nav-logo">Nail·Art<span>美甲工作室</span></div><button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button><ul class="nav-links" id="navLinks"><li><a href="#about">关于我</a></li><li><a href="#services">服务价格</a></li><li><a href="#gallery">作品集</a></li><li><a href="#faq">常见问题</a></li><li><a href="#booking" class="nav-cta">立即预约</a></li></ul></div></nav>
+
 <section class="hero" id="hero"><div class="container"><div class="hero-content"><div class="hero-badge">东莞东坑 · 高级美甲师</div><h1>指尖上的<em>艺术</em><br>用心雕琢每一寸</h1><p>5 年经验 · 专注日式美甲、延长甲、手绘设计。</p><div class="hero-actions"><a href="#booking" class="btn btn-primary">📅 预约时间</a><a href="#gallery" class="btn btn-outline">浏览作品</a></div></div></div><div class="hero-scroll"><a href="#about"><span>Scroll</span><div class="scroll-line"></div></a></div></section>
+
 <section class="section" id="about"><div class="container"><div class="about-grid"><div class="about-image"><img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80" alt="" loading="lazy"></div><div class="about-text"><div class="section-tag">About</div><h3>你好，我是 <span>小妮</span></h3><p>从一名美甲爱好者到全职美甲师，在这个行业走过了 5 个年头。</p><p>擅长日式美甲、延长甲、3D 立体雕花、手绘图案、法式简约风格。甲油胶通过 SGS 认证。</p><p>我相信「慢工出细活」，用心对待每一位客人。</p><div class="about-stats"><div class="about-stat"><strong>500+</strong><span>满意客户</span></div><div class="about-stat"><strong>5+</strong><span>年经验</span></div><div class="about-stat"><strong>98%</strong><span>好评率</span></div></div></div></div></div></section>
+
 <section class="section section-alt" id="services"><div class="container"><div class="section-header"><div class="section-tag">Services &amp; Pricing</div><h2>服务项目 &amp; 价格</h2><p>明码实价，无隐形消费</p></div><div class="services-grid" id="servicesGrid"></div></div></section>
+
 <section class="section" id="gallery"><div class="container"><div class="section-header"><div class="section-tag">Portfolio</div><h2>近期作品展示</h2><p>可参考同款或进行创意修改</p></div><div class="gallery-grid" id="galleryGrid"></div></div></section>
+
 <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><img id="lightboxImg" src="" alt=""></div>
+
 <section class="section section-alt" id="faq"><div class="container"><div class="section-header"><div class="section-tag">FAQ</div><h2>常见问题</h2></div><div class="faq-grid"><div class="faq-item"><h4>💅 做一次美甲能维持多久？</h4><p>正常保养下可维持 3-4 周。</p></div><div class="faq-item"><h4>💳 预约需要付定金吗？</h4><p>需要预付 30% 定金锁定档期，尾款到店支付。</p></div><div class="faq-item"><h4>⏱ 第一次做要多久？</h4><p>基础款约 1-1.5 小时，复杂手绘或延长约 2-3 小时。</p></div><div class="faq-item"><h4>🔄 可以改期或取消吗？</h4><p>提前 4 小时通知即可。</p></div><div class="faq-item"><h4>🌟 没有参考图怎么办？</h4><p>到店根据手型、肤色推荐适合的款式。</p></div><div class="faq-item"><h4>🤰 孕妇可以做吗？</h4><p>可以。甲油胶通过 SGS 认证，安全无刺激。</p></div></div></div></section>
+
 <section class="section booking" id="booking"><div class="container"><div class="section-header"><div class="section-tag">Booking</div><h2>预约下单</h2><p>2 小时内确认时间</p></div><div class="booking-wrapper"><div class="booking-info"><h3>预约前须知</h3><div class="info-item"><div class="icon">⏱</div><div><strong>服务时长</strong><span>基础款约 1-1.5h，手绘/延长约 2-3h</span></div></div><div class="info-item"><div class="icon">💳</div><div><strong>定金</strong><span>预付 30%，尾款到店支付</span></div></div><div class="info-item"><div class="icon">📍</div><div><strong>地址</strong><span>广东省东莞市东坑镇</span></div></div><div class="info-item"><div class="icon">📋</div><div><strong>取消</strong><span>提前 4 小时通知</span></div></div></div><div class="booking-form" id="bookingForm"><form id="orderForm" novalidate><div class="form-row"><div class="form-group"><label>姓名 <span class="required">*</span></label><input type="text" id="fName" name="name" placeholder="您的称呼" required></div><div class="form-group"><label>手机号 <span class="required">*</span></label><input type="tel" id="fPhone" name="phone" placeholder="用于确认预约" required></div></div><div class="form-group"><label>选择服务 <span class="required">*</span></label><select id="fService" name="service" required><option value="">— 请选择服务项目 —</option></select></div><div class="form-row"><div class="form-group"><label>预约日期 <span class="required">*</span></label><input type="date" id="fDate" name="date" required></div><div class="form-group"><label>预约时间 <span class="required">*</span></label><select id="fTime" name="time" required><option value="">— 请选择时段 —</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option></select></div></div><div class="form-group"><label>参考图 / 备注</label><textarea id="fNote" name="note" placeholder="款式参考图链接或特殊需求"></textarea></div><div class="form-group"><label>首选联系方式 <span class="required">*</span></label><select id="fContact" name="contact_method" required><option value="">— 请选择 —</option><option value="wechat">微信</option><option value="phone">电话</option><option value="sms">短信</option></select></div><button type="submit" class="btn-submit">提交预约</button></form><div class="form-success" id="formSuccess"><div class="check">✓</div><h4>预约已提交！</h4><p>小妮会在 2 小时内联系你确认时间 💅</p></div></div></div></div></section>
+
 <section class="section" id="contact"><div class="container"><div class="section-header"><div class="section-tag">Contact</div><h2>联系我</h2></div><div class="contact-grid"><div class="contact-card"><div class="icon">💬</div><h4>微信</h4><p><a href="#">nail_xiaoni</a></p></div><div class="contact-card"><div class="icon">📱</div><h4>电话</h4><p><a href="tel:+8615876748017">158-7674-8017</a><br>10-20 点</p></div><div class="contact-card"><div class="icon">📸</div><h4>小红书</h4><p><a href="#">@小妮美甲</a></p></div></div></div></section>
+
 <footer class="footer"><div class="container"><div class="footer-socials"><a href="#" aria-label="微信">💬</a><a href="#" aria-label="小红书">📕</a><a href="#" aria-label="抖音">🎵</a><a href="#" aria-label="微博">📢</a></div><div class="logo">Nail·Art</div><p>© 2026 小妮美甲 · 东莞东坑 <span class="admin-footer-link" id="adminFooterLink">⚙ 管理后台</span></p></div></footer>
+
 <section class="admin-section" id="adminSection"><div class="container"><div class="admin-login" id="adminLogin"><h3>🔐 管理后台</h3><input type="password" id="adminPwd" placeholder="管理密码"><button class="btn btn-primary" id="adminLoginBtn" style="width:100%">进入</button><div class="error" id="adminError">密码错误，请重试</div></div><div class="admin-token-setup" id="adminTokenSetup" style="display:none;max-width:480px;margin:40px auto;text-align:center;padding:32px 28px;background:var(--cream);border-radius:var(--radius);border:1px solid var(--border)"><h3 style="font-family:var(--font-serif);margin-bottom:16px">⚙ 设置云端同步</h3><p style="color:var(--text-light);font-size:.85rem;margin-bottom:20px">需要 GitHub Token 才能同步订单。输入你之前使用的 Token，只需设置一次。</p><input type="password" id="adminTokenInput" placeholder="粘贴 GitHub Token" style="width:100%;padding:12px;font-size:.9rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--white);outline:none;margin-bottom:12px;text-align:center"><button class="btn btn-primary" id="adminTokenSave" style="width:100%;padding:14px">保存并进入</button></div><div class="admin-dashboard" id="adminDashboard" style="display:none"><div class="admin-header"><h2>📋 订单管理</h2><span class="badge" id="orderCount">0 条订单</span><span class="admin-logout-btn" id="adminLogoutBtn">退出</span></div><div class="admin-table-wrap"><div class="admin-empty" id="adminEmpty"><div class="icon">📭</div><p>暂无订单，客户预约后会显示在这里</p></div><table class="admin-table" id="adminTable" style="display:none"><thead><tr><th>时间</th><th>姓名</th><th>电话</th><th>服务</th><th>日期</th><th>时段</th><th>备注</th><th>联系方式</th><th>状态</th><th>操作</th></tr></thead><tbody id="adminTbody"></tbody></table></div></div></div></section>
+
 <button class="back-top" id="backTop">↑</button>
+
 <script>
+
 var s=[{id:"basic",name:"基础纯色甲",ic:"🎨",pr:"¥98",du:"45min",de:"日本进口甲油胶 · 单色涂抹 · 含底胶封层",tg:"人气款",dt:"包含：修甲型 + 去死皮 + 基础护理 + 甲油胶"},{id:"french",name:"法式美甲",ic:"🤍",pr:"¥128",du:"1h",de:"经典微笑线 · 可选白/彩/镜面法式",tg:"经典",dt:"包含：修甲型 + 去死皮 + 经典法式 + 封层"},{id:"cateye",name:"猫眼/磁铁甲",ic:"✨",pr:"¥158",du:"1h",de:"磁粉光影效果 · 多色可选 · 质感高级",tg:"网红款",dt:"包含：修甲型 + 去死皮 + 磁粉底胶 + 磁铁造型"},{id:"gradient",name:"渐变/晕染甲",ic:"🌈",pr:"¥168",du:"1.2h",de:"颜色过渡自然 · 海绵/笔刷晕染",tg:"",dt:"包含：修甲型 + 去死皮 + 双色渐变 + 封层"},{id:"handpaint",name:"手绘图案甲",ic:"🖌",pr:"¥198",du:"1.5-2h",de:"花卉/动物/卡通/抽象",tg:"定制",dt:"包含：修甲型 + 去死皮 + 纯手绘 + 封层"},{id:"sculpt3d",name:"3D立体雕花",ic:"🌸",pr:"¥268",du:"2-3h",de:"胶雕/粉雕 · 立体花 · 水钻点缀",tg:"精品",dt:"包含：修甲型 + 去死皮 + 立体雕花 + 水钻配饰"},{id:"extension",name:"延长甲(全贴)",ic:"💅",pr:"¥228",du:"2h",de:"甲片全贴 · 自然弧度 · 多形可选",tg:"",dt:"包含：修甲型 + 去死皮 + 全贴甲片 + 造型"},{id:"extensiongel",name:"延长甲(光疗)",ic:"✨",pr:"¥328",du:"2.5-3h",de:"光疗延长 · 更牢固自然",tg:"热门",dt:"包含：修甲型 + 去死皮 + 光疗延长 + 任意造型"},{id:"nailartset",name:"穿戴甲定制",ic:"📦",pr:"¥138起",du:"到店沟通",de:"根据甲型定制 · 可反复使用",tg:"新品",dt:"包含：量甲型 + 定制制作 + 送胶水"}];
+
 var g=[{u:"https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80",l:"立体花卉延长甲"},{u:"https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=400&q=80",l:"猫眼渐变"},{u:"https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80",l:"日式手绘樱花"},{u:"https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=400&q=80",l:"法式白边"},{u:"https://images.unsplash.com/photo-1635344208128-c75e5cbaf6cc?w=400&q=80",l:"极光粉美甲"},{u:"https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80",l:"水钻皇冠延长"},{u:"https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=400&q=80",l:"油画风格手绘"},{u:"https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=400&q=80",l:"棋盘格美甲"},{u:"https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80",l:"珍珠贝壳甲"}];
+
 var PWD="nail888";
+
 // === CLOUD SYNC ===
+
 var GH_REPO="666lrs/nail-studio",ghSha=null;
+
 function ghTok(){return localStorage.getItem("gh_token")||""}
+
 function ghReq(m,d){return fetch("https://api.github.com/repos/"+GH_REPO+"/contents/orders.json",{method:m||"GET",headers:{"Authorization":"Bearer "+ghTok(),"Accept":"application/vnd.github.v3+json"},body:d?JSON.stringify(d):null}).then(function(r){return r.status<300?r.json():null})}
+
 function ghSync(c){var lo=[];try{lo=JSON.parse(localStorage.getItem("nail_orders")||"[]")}catch(e){}var m={};for(var i=0;i<lo.length;i++)m[lo[i].id]=lo[i];for(var i=0;i<c.length;i++)m[c[i].id]=c[i];var r=[];for(var id in m)r.push(m[id]);r.sort(function(a,b){return a.time<b.time?1:-1});localStorage.setItem("nail_orders",JSON.stringify(r));if(typeof rO==="function")setTimeout(rO,100)}
+
 function ghGet(){try{ghReq("GET").then(function(j){if(j&&j.content){ghSha=j.sha;try{var t=decodeURIComponent(escape(atob(j.content.replace(/\n/g,""))));var c=JSON.parse(t);ghSync(c)}catch(e){}}})}catch(e){}}
+
 function ghSet(o){try{var c=btoa(unescape(encodeURIComponent(JSON.stringify(o))));ghReq("PUT",{message:"Update orders",content:c,sha:ghSha,branch:"main"}).then(function(j){if(j&&j.content)ghSha=j.content.sha})}catch(e){}}
+
+
 
 (function(){var h="";for(var i=0;i<s.length;i++){var x=s[i],t=x.tg?'<span class="service-tag">'+x.tg+'</span>':"";h+='<div class="service-card"><div class="icon">'+x.ic+'</div>'+t+'<div class="top-row"><h4>'+x.name+'</h4><div class="price">'+x.pr+'</div></div><div class="meta"><span>\u23f1 '+x.du+'</span></div><div class="desc">'+x.de+'</div><div class="detail">'+x.dt+'</div><button class="btn-order" data-id="'+x.id+'">\u9009\u62e9\u6b64\u670d\u52a1</button></div>'}document.getElementById("servicesGrid").innerHTML=h})();
 (function(){var h="";for(var i=0;i<g.length;i++){h+='<div class="gallery-item" data-idx="'+i+'"><img src="'+g[i].u+'" alt="'+g[i].l+'" loading="lazy"><div class="overlay"><span>'+g[i].l+'</span></div></div>'}document.getElementById("galleryGrid").innerHTML=h})();
 
 function getO(){try{var lo=JSON.parse(localStorage.getItem("nail_orders")||"[]");if(typeof ghGet==="function")ghGet();return lo}catch(e){return[]}}function saveO(o){localStorage.setItem("nail_orders",JSON.stringify(o));if(typeof ghSet==="function")setTimeout(function(){ghSet(o)},100)}
+
 
 
 (function(){var lb=document.getElementById("lightbox"),li=document.getElementById("lightboxImg"),lc=document.getElementById("lightboxClose");document.getElementById("galleryGrid").onclick=function(e){var it=e.target.closest(".gallery-item");if(it){li.src=it.querySelector("img").src;lb.classList.add("active");document.body.style.overflow="hidden"}};lc.onclick=function(){lb.classList.remove("active");document.body.style.overflow=""};lb.onclick=function(e){if(e.target===lb){lb.classList.remove("active");document.body.style.overflow=""}};document.onkeydown=function(e){if(e.key==="Escape"){lb.classList.remove("active");document.body.style.overflow=""}}})();
@@ -191,67 +372,128 @@ document.getElementById("servicesGrid").onclick=function(e){var btn=e.target.clo
 function checkAvail(){var sel=document.getElementById("fTime"),date=document.getElementById("fDate").value,os=getO(),booked={};for(var i=0;i<os.length;i++){if(os[i].date===date&&os[i].status!=="cancelled"){booked[os[i].time_slot]=true}}for(var i=0;i<sel.options.length;i++){var opt=sel.options[i];if(opt.value&&booked[opt.value]){opt.disabled=true;opt.textContent=opt.value+" (\u5df2\u9884\u7ea6)"}else if(opt.value){opt.disabled=false;opt.textContent=opt.value}}}
 
 document.getElementById("orderForm").onsubmit=function(e){e.preventDefault();var fd=new FormData(this),v=true;this.querySelectorAll("[required]").forEach(function(el){if(!fd.get(el.name)){v=false;el.style.borderColor="#d45"}else el.style.borderColor=""});if(!v)return;var d=Object.fromEntries(fd.entries()),sv=null;for(var i=0;i<s.length;i++){if(s[i].id===d.service){sv=s[i];break}}var o={id:Date.now()+"_"+Math.random().toString(36).slice(2,6),time:new Date().toLocaleString("zh-CN"),name:d.name,phone:d.phone,service_name:sv?sv.name+" "+sv.pr:"",date:d.date,time_slot:d.time,note:d.note||"",contact_method:{wechat:"微信",phone:"电话",sms:"短信"}[d.contact_method]||d.contact_method,status:"pending"};var os=getO();os.unshift(o);saveO(os);this.style.display="none";document.getElementById("formSuccess").classList.add("active")};
+
 function rO(){var os=getO();document.getElementById("orderCount").textContent=os.length+" 条订单";var em=document.getElementById("adminEmpty"),tb=document.getElementById("adminTable"),tb2=document.getElementById("adminTbody");if(os.length===0){em.style.display="block";tb.style.display="none";return}em.style.display="none";tb.style.display="";var sm={pending:"待确认",confirmed:"已确认",completed:"已完成",cancelled:"已取消"};tb2.innerHTML="";for(var i=0;i<os.length;i++){var o=os[i],n=(o.note||"-");if(n.length>30)n=n.slice(0,30)+"...";var st=o.status||"pending",tr='<tr><td>'+o.time+'</td><td><strong>'+(o.name||"")+'</strong></td><td>'+(o.phone||"")+'</td><td>'+(o.service_name||"")+'</td><td>'+(o.date||"")+'</td><td>'+(o.time_slot||"")+'</td><td>'+n+'</td><td>'+(o.contact_method||"")+'</td><td><span class="status '+st+'">'+(sm[st]||st)+'</span></td><td><select class="action" onchange="uS(\''+o.id+'\',this.value)"><option value="pending"'+(st==="pending"?" selected":"")+'>待确认</option><option value="confirmed"'+(st==="confirmed"?" selected":"")+'>已确认</option><option value="completed"'+(st==="completed"?" selected":"")+'>已完成</option><option value="cancelled"'+(st==="cancelled"?" selected":"")+'>已取消</option></select><br><button class="btn-del" onclick="dO(\''+o.id+'\')">删除</button></td></tr>';tb2.innerHTML+=tr}};
+
 window.uS=function(id,st){var os=getO();for(var i=0;i<os.length;i++){if(os[i].id===id){os[i].status=st;saveO(os);rO();if(serverReady)apiPut('/api/orders/'+id,{status:st});return}}};
+
 window.dO=function(id){if(!confirm("确定删除？"))return;var os=getO();for(var i=0;i<os.length;i++){if(os[i].id===id){os.splice(i,1);saveO(os);rO();return}}};
+
 document.getElementById("adminLoginBtn").onclick=function(){var p=document.getElementById("adminPwd");if(p.value===PWD){document.getElementById("adminLogin").style.display="none";var tk=ghTok();if(!tk){document.getElementById("adminTokenSetup").style.display="";document.getElementById("adminDashboard").style.display="none"}else{document.getElementById("adminDashboard").style.display="";rO();ghGet()}document.getElementById("adminError").style.display="none";document.getElementById("adminSection").scrollIntoView({behavior:"smooth"})}else{document.getElementById("adminError").style.display="block";p.value="";p.focus()}};
+
 document.getElementById("adminPwd").onkeydown=function(e){if(e.key==="Enter")document.getElementById("adminLoginBtn").click()};
+
 document.getElementById("adminTokenSave").onclick=function(){var t=document.getElementById("adminTokenInput");if(t.value&&t.value.length>20){localStorage.setItem("gh_token",t.value);document.getElementById("adminTokenSetup").style.display="none";document.getElementById("adminDashboard").style.display="";rO();ghGet()}else{alert("?????? GitHub Token")}};
+
 document.getElementById("adminLogoutBtn").onclick=function(){document.getElementById("adminLogin").style.display="";document.getElementById("adminDashboard").style.display="none";document.getElementById("adminPwd").value="";document.getElementById("adminError").style.display="none";document.getElementById("adminTokenSetup").style.display="none"};
-document.getElementById("adminFooterLink").onclick=function(e){e.preventDefault();document.getElementById("adminSection").classList.add("active");document.getElementById("adminLogin").style.display="";document.getElementById("adminDashboard").style.display="none";document.getElementById("adminPwd").value="";document.getElementById("adminError").style.display="none";document.getElementById("adminSection").scrollIntoView({behavior:"smooth"})};
+
+document.getElementById("adminFooterLink").onclick=function(){document.getElementById("adminSection").classList.add("active");document.getElementById("adminLogin").style.display="";document.getElementById("adminDashboard").style.display="none";document.getElementById("adminPwd").value="";document.getElementById("adminError").style.display="none";document.getElementById("adminSection").scrollIntoView({behavior:"smooth"})};
+
 if(window.location.hash==="#admin"){document.getElementById("adminSection").classList.add("active")}
+
 var nl=document.getElementById("navLinks");document.querySelector(".nav-toggle").onclick=function(){nl.classList.toggle("open")};nl.querySelectorAll("a").forEach(function(a){a.onclick=function(){nl.classList.remove("open")}});
+
 document.getElementById("backTop").onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
+
 window.onscroll=function(){document.getElementById("backTop").classList.toggle("visible",window.scrollY>400);document.getElementById("nav").classList.toggle("scrolled",window.scrollY>20);var cur="";document.querySelectorAll("section[id],footer").forEach(function(s){if(window.scrollY>=s.offsetTop-100)cur=s.id});nl.querySelectorAll("a:not(.nav-cta)").forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+cur)})};
 
+
+
 // === SERVER API ===
+
 var API = window.location.origin;
+
 var serverReady = false;
 
+
+
 function apiGet(url){
+
   return fetch(API+url).then(function(r){return r.json()}).catch(function(){return null});
-}
-function apiPost(url,data){
-  return fetch(API+url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}).then(function(r){return r.json()}).catch(function(){return null});
-}
-function apiPut(url,data){
-  return fetch(API+url,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}).then(function(r){return r.json()}).catch(function(){return null});
-}
-function apiDel(url){
-  return fetch(API+url,{method:"DELETE"}).then(function(r){return r.json()}).catch(function(){return null});
+
 }
 
+function apiPost(url,data){
+
+  return fetch(API+url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}).then(function(r){return r.json()}).catch(function(){return null});
+
+}
+
+function apiPut(url,data){
+
+  return fetch(API+url,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}).then(function(r){return r.json()}).catch(function(){return null});
+
+}
+
+function apiDel(url){
+
+  return fetch(API+url,{method:"DELETE"}).then(function(r){return r.json()}).catch(function(){return null});
+
+}
+
+
+
 // Override getO/saveO/rO to use server
+
 var _origGetO = getO, _origSaveO = saveO;
+
 (function(){var h="";for(var i=0;i<s.length;i++){var x=s[i],t=x.tg?'<span class="service-tag">'+x.tg+'</span>':"";h+='<div class="service-card"><div class="icon">'+x.ic+'</div>'+t+'<div class="top-row"><h4>'+x.name+'</h4><div class="price">'+x.pr+'</div></div><div class="meta"><span>\u23f1 '+x.du+'</span></div><div class="desc">'+x.de+'</div><div class="detail">'+x.dt+'</div><button class="btn-order" data-id="'+x.id+'">\u9009\u62e9\u6b64\u670d\u52a1</button></div>'}document.getElementById("servicesGrid").innerHTML=h})();
 (function(){var h="";for(var i=0;i<g.length;i++){h+='<div class="gallery-item" data-idx="'+i+'"><img src="'+g[i].u+'" alt="'+g[i].l+'" loading="lazy"><div class="overlay"><span>'+g[i].l+'</span></div></div>'}document.getElementById("galleryGrid").innerHTML=h})();
 
 function getO(){
+
   var local = _origGetO();
+
   // Try server - if works, merge with local
+
   apiGet("/api/orders").then(function(serverOrders){
+
     if(serverOrders && serverOrders.length !== undefined){
+
       serverReady = true;
+
       // Merge: server orders always win
+
       var merged = {};
+
       for(var i=0;i<local.length;i++) merged[local[i].id] = local[i];
+
       for(var i=0;i<serverOrders.length;i++) merged[serverOrders[i].id] = serverOrders[i];
+
       var result = [];
+
       for(var id in merged) result.push(merged[id]);
+
       result.sort(function(a,b){return b.time > a.time ? 1 : -1});
+
       _origSaveO(result);
+
       if(typeof rO === "function") rO();
+
       return result;
+
     }
+
   });
+
   return local;
+
 }
+
 function saveO(o){
+
   _origSaveO(o);
+
   if(serverReady){
+
     apiPost("/api/orders", {items: o}).then(function(r){
+
       if(r && r.ok) console.log("Synced to server");
+
     });
+
   }
+
 }
+
 </script></body></html>
